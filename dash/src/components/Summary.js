@@ -74,13 +74,31 @@
 
 
 
-import React from "react";
 import { motion } from "framer-motion";
 import { Bell,Search, User } from "lucide-react";
 import Authentication from "./authentication";
 import { Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+//import { Bell,Search, User } from "lucide-react";
+
+import { Link } from "react-router-dom";
 
 const Summary = () => {
+
+  const [selectedMenu, setSelectedMenu] = useState(0);
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+  const handleMenuClick = (index) => {
+    setSelectedMenu(index);
+  };
+
+  const handleProfileClick = (index) => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const menuClass = "menu";
+  const activeMenuClass = "menu selected";
+
   return (
     <>
        <div className="min-h-screen bg-gray-100">
@@ -104,13 +122,94 @@ const Summary = () => {
         {/* Sidebar */}
         <nav className="w-64 h-screen bg-white p-6 shadow-md">
            <ul className="space-y-10">
-            <li className="font-semibold">🏠 Home</li>
-             <li>👥 Add Employee</li>
-           <li>📋 View Employee</li>
-            <li>📌 Create Task</li>
-             <li>📅 Attendance </li>
-            <li>💰 Payroll Management</li>
-            <li>🔄 360° Feedback</li>
+            <li className="font-semibold">
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              🏠 Home
+              </p>
+            </Link>
+              </li>
+
+
+             <li>
+             <Link
+              style={{ textDecoration: "none" }}
+              to="/addemploy"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              👥 Add Employee
+              </p>
+            </Link>
+
+             </li>
+             
+            <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/orders"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              📋 View Employee
+              </p>
+            </Link>
+            </li>
+
+
+            <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/createtask"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              📌 Create Task
+              </p>
+            </Link>
+              </li>
+
+
+             <li>
+             <Link
+              style={{ textDecoration: "none" }}
+              to="/attendance"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              📅 Attendance
+              </p>
+            </Link>
+               </li>
+
+
+            <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/payrollmanage"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              💰 Payroll Management
+              </p>
+            </Link>
+              </li>
+
+            <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/"
+              onClick={() => handleMenuClick(0)}
+            >
+              <p className={selectedMenu === 0 ? activeMenuClass : menuClass}style={{fontSize:"1.1rem"}}>
+              🔄 360° Feedback
+              </p>
+            </Link>
+              </li>
           </ul>
         </nav>
 

@@ -151,6 +151,8 @@ const Menu = () => {
             </Link>
           </li>
 
+
+
           <li>
             <Link
               style={{ textDecoration: "none" }}
@@ -163,6 +165,8 @@ const Menu = () => {
             </Link>
           </li>
 
+
+
           <li>
             <Link
               style={{ textDecoration: "none" }}
@@ -174,6 +178,8 @@ const Menu = () => {
           </li>
 
 
+
+
           <li>
             <Link
               style={{ textDecoration: "none" }}
@@ -183,6 +189,8 @@ const Menu = () => {
               <User className="w-8 h-8 rounded-full bg-gray-300" />
             </Link>
           </li>
+
+
 
 
 

@@ -41,10 +41,9 @@
 
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
+import Holdings from "./Holdings";
 import Summary from "./Summary";
-import WatchList from "./WatchList";
-import { GeneralContextProvider } from "./GeneralContext";
+import Orders from "./Orders";
 import Authentication from "./authentication";
 
 const Dashboard = () => {
@@ -52,6 +51,8 @@ const Dashboard = () => {
 
       <div className="content">
         <Routes>
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/holdings" element={<Holdings />} />
           <Route exact path="/" element={<Summary />} />
           <Route path="/auth" element={<Authentication />} />
         </Routes>
